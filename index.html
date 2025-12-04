@@ -7,18 +7,6 @@
     <link rel="icon" type="image/png" href="logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <div id="viewCount" style="text-align:center; margin-top:10px; color:#a78bfa; font-size:12px;">
-        Loading views...
-    </div>
-
-    <script>
-        fetch('https://api.countapi.xyz/hit/jayabalaji-portfolio/views')
-            .then(res => res.json())
-            .then(res => {
-                document.getElementById("viewCount").innerText =
-                    `👁️ Portfolio Views: ${res.value}`;
-            });
-    </script>
     <style>
          :root {
             --bg: #050510;
@@ -1222,12 +1210,32 @@
             </div>
 
             <div class="footer-note">
-                Built with 💜.
-            </div>
-        </section>
-    </main>
+    Built with 💜, dark mode, and a lot of console logs.
+</div>
+
+<div id="viewCount" style="margin-top: 6px; font-size: 11px; color: #a78bfa; text-align: center;">
+    👁️ Portfolio views: loading...
+</div>
+
+</section>
+</main>
+
+<script>
+  fetch('https://api.countapi.xyz/hit/jayabalaji-portfolio/views')
+    .then(res => res.json())
+    .then(res => {
+      document.getElementById("viewCount").innerText =
+        `👁️ Portfolio views: ${res.value}`;
+    })
+    .catch(() => {
+      document.getElementById("viewCount").innerText =
+        `👁️ Portfolio views: unavailable`;
+    });
+</script>
+
 </body>
 
 
 </html>
+
 
