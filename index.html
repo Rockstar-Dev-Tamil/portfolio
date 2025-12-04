@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>T. Jayabalaji | Portfolio</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+         :root {
+            --bg: #050510;
+            --bg-alt: #0b0b1a;
+            --card: #111127;
+            --accent: #a855f7;
+            --accent-two: #6366f1;
+            --accent-soft: rgba(168, 85, 247, 0.12);
+            --text: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-subtle: rgba(148, 163, 184, 0.25);
+            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
+            --radius-xl: 18px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top, #1e1b4b 0, #020617 45%, #020617 100%);
+            background-size: 220% 220%;
+            /* animated bg */
+            animation: bg-pan 22s ease-in-out infinite alternate;
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        /* Layout */
+        
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 18px 60px;
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(18px);
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.4), transparent);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            /* remove gradient */
+            box-shadow: 0 0 18px rgba(168, 85, 247, 0.7);
+            animation: float 4.2s ease-in-out infinite;
+        }
+        
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .nav-title-main {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .nav-title-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+        
+        .nav-link {
+            padding: 6px 10px;
+            border-radius: 999px;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--text);
+            background: rgba(15, 23, 42, 0.8);
+            transform: translateY(-1px);
+        }
+        
+        .nav-pill {
+            padding: 7px 13px;
+            border-radius: 999px;
+            border: 1px solid rgba(168, 85, 247, 0.6);
+            background: radial-gradient(circle at 0 0, rgba(168, 85, 247, 0.25), rgba(15, 23, 42, 0.95));
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 0 16px rgba(168, 85, 247, 0.5);
+        }
+        
+        .nav-pill-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.7);
+        }
+        /* Hero */
+        
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+            gap: 24px;
+            padding-top: 32px;
+            padding-bottom: 32px;
+            animation: fade-up 0.8s ease-out both;
+        }
+        
+        @media (max-width: 840px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .hero-card {
+            background: radial-gradient(circle at top left, rgba(168, 85, 247, 0.15), rgba(15, 23, 42, 0.96));
+            border-radius: 22px;
+            padding: 22px 20px 20px;
+            border: 1px solid rgba(129, 140, 248, 0.35);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-card::before {
+            /* soft animated border glow */
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: conic-gradient(from 180deg, rgba(168, 85, 247, 0.4), transparent, rgba(59, 130, 246, 0.4), transparent);
+            opacity: 0.18;
+            mix-blend-mode: screen;
+            animation: border-spin 18s linear infinite;
+            pointer-events: none;
+        }
+        
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        
+        .hero-pill span.accent-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+        }
+        
+        .hero-title {
+            font-size: clamp(26px, 3vw, 32px);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .hero-highlight {
+            background: linear-gradient(90deg, #c4b5fd, #f9a8d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-bottom: 14px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        
+        .btn-primary {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            color: #f9fafb;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 12px 30px rgba(79, 70, 229, 0.7);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+            animation: pulse-glow 3.5s ease-in-out infinite;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 0 14px 40px rgba(79, 70, 229, 0.9);
+            opacity: 0.98;
+        }
+        
+        .btn-ghost {
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text);
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+        }
+        
+        .btn-ghost:hover {
+            background: rgba(15, 23, 42, 1);
+            border-color: rgba(148, 163, 184, 0.9);
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+        
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        
+        .hero-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 11px;
+        }
+        
+        .hero-metric {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 999px;
+            padding: 7px 10px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        
+        .hero-metric-label {
+            color: var(--text-muted);
+        }
+        
+        .hero-metric-value {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        /* Hero Right */
+        
+        .hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            animation: fade-up 0.9s ease-out both;
+        }
+        
+        .hero-tag-card {
+            background: rgba(15, 23, 42, 0.96);
+            border-radius: var(--radius-xl);
+            padding: 14px 14px 12px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7);
+            font-size: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .hero-tag-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 46px rgba(15, 23, 42, 0.95);
+            border-color: rgba(168, 85, 247, 0.7);
+        }
+        
+        .hero-tag-title {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tag {
+            padding: 4px 9px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 11px;
+            color: var(--text-muted);
+            background: rgba(15, 23, 42, 0.9);
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+        
+        .tag.tag-accent {
+            border-color: rgba(168, 85, 247, 0.7);
+            color: #e9d5ff;
+            background: rgba(88, 28, 135, 0.6);
+        }
+        
+        .tag:hover {
+            border-color: rgba(168, 85, 247, 0.7);
+            background: rgba(30, 64, 175, 0.7);
+            transform: translateY(-1px);
+        }
+        /* Sections */
+        
+        section {
+            margin-top: 34px;
+            animation: fade-up 0.8s ease-out both;
+        }
+        
+        section:nth-of-type(2) {
+            animation-delay: 0.1s;
+        }
+        
+        section:nth-of-type(3) {
+            animation-delay: 0.15s;
+        }
+        
+        section:nth-of-type(4) {
+            animation-delay: 0.2s;
+        }
+        
+        section:nth-of-type(5) {
+            animation-delay: 0.25s;
+        }
+        
+        .section-title {
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        
+        .section-title span.bar {
+            width: 38px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(to right, var(--accent), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3.8s linear infinite;
+        }
+        
+        .section-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        /* Skills */
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        
+        .card {
+            background: rgba(15, 23, 42, 0.97);
+            border-radius: var(--radius-xl);
+            padding: 14px 14px 12px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: 0 16px 38px rgba(15, 23, 42, 0.85);
+            font-size: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 52px rgba(15, 23, 42, 0.98);
+            border-color: rgba(168, 85, 247, 0.6);
+            background: rgba(15, 23, 42, 0.99);
+        }
+        
+        .card-title {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .chip {
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        /* Projects */
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        
+        .project-card {
+            background: radial-gradient(circle at top left, rgba(88, 28, 135, 0.4), rgba(15, 23, 42, 0.96));
+            border-radius: var(--radius-xl);
+            padding: 14px;
+            border: 1px solid rgba(168, 85, 247, 0.45);
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.95);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 26px 60px rgba(15, 23, 42, 0.98);
+            border-color: rgba(196, 181, 253, 0.9);
+            background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.55), rgba(15, 23, 42, 1));
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+        
+        .project-title {
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .project-tag {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: var(--text-muted);
+        }
+        
+        .project-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4px;
+            font-size: 11px;
+        }
+        
+        .project-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .project-pill {
+            font-size: 10px;
+            padding: 3px 7px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: #e5e7eb;
+        }
+        
+        .project-link {
+            font-size: 11px;
+            color: #e9d5ff;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+        
+        .project-link:hover {
+            opacity: 1;
+        }
+        /* Project action buttons (Live Demo / GitHub Repo) */
+        
+        .project-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .btn-action {
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, opacity 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(15, 23, 42, 0.95);
+        }
+        
+        .btn-action:hover {
+            transform: translateY(-1px);
+            opacity: 0.96;
+        }
+        
+        .btn-live {
+            border-color: rgba(168, 85, 247, 0.8);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.22), rgba(99, 102, 241, 0.18));
+        }
+        
+        .btn-code {
+            border-color: rgba(148, 163, 184, 0.9);
+            background: rgba(15, 23, 42, 0.9);
+        }
+        /* Experience & achievements */
+        
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            font-size: 12px;
+        }
+        
+        .timeline-item-title {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        
+        .timeline-badge {
+            font-size: 11px;
+            color: var(--accent);
+            margin-bottom: 2px;
+        }
+        
+        .timeline-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-body {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        /* Contact */
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+            gap: 16px;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 840px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(148, 163, 184, 0.3);
+        }
+        
+        .contact-label {
+            color: var(--text-muted);
+        }
+        
+        .contact-value {
+            font-size: 12px;
+        }
+        
+        .footer-note {
+            margin-top: 18px;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        section:last-of-type {
+            margin-bottom: 40px;
+        }
+        /* Animations */
+        
+        @keyframes bg-pan {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 50% 100%;
+            }
+            100% {
+                background-position: 100% 0%;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 12px 30px rgba(79, 70, 229, 0.45);
+            }
+            50% {
+                box-shadow: 0 14px 42px rgba(168, 85, 247, 0.95);
+            }
+            100% {
+                box-shadow: 0 12px 30px rgba(79, 70, 229, 0.45);
+            }
+        }
+        
+        @keyframes border-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <div>
+                    <div class="nav-title-main">T. Jayabalaji</div>
+                    <div class="nav-title-sub">CSE @ SRM • Developer & Problem Solver</div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="nav-pill">
+                    <span class="nav-pill-dot"></span>
+                    <span>Open to internships</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-card">
+                <div class="hero-pill">
+                    <span class="accent-dot"></span>
+                    <span>Developer • Problem Solver • Builder</span>
+                </div>
+                <h1 class="hero-title">
+                    Hey, I’m <span class="hero-highlight">Jayabalaji</span> — I like building things that actually work.
+                </h1>
+                <p class="hero-subtitle">
+                    B.Tech CSE student from Chennai. I enjoy coding, debugging, and turning ideas into working systems — from terminal tools and Discord bots to game scripts and web apps.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+                        View my projects →
+                    </button>
+                    <a class="btn-ghost" href="mailto:ytrockstar51@gmail.com">
+                        Email me
+                    </a>
+                    <a class="btn-ghost" href="https://github.com/Rockstar-Dev-Tamil" target="_blank">
+                        GitHub
+                    </a>
+                    <a class="btn-ghost" href="https://www.linkedin.com/in/jayabalaji-t-1a647526a/" target="_blank">
+                        LinkedIn
+                    </a>
+                    <a class="btn-ghost" href="https://discord.com/users/844809549222379561" target="_blank">
+                        <span>Discord</span>
+                    </a>
+                    <a class="btn-ghost" href="https://instagram.com/ig.rockstar.yt" target="_blank">
+                        <span>Instagram</span>
+                    </a>
+                </div>
+
+                <div class="hero-meta">
+                    <span>🎓 2nd year CSE @ SRM</span>
+                    <span>💻 Focus: C, C++, Python, Web</span>
+                </div>
+
+                <div class="hero-grid">
+                    <div class="hero-metric">
+                        <div class="hero-metric-label">Core Stack</div>
+                        <div class="hero-metric-value">C • C++ • Python • JS</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-label">Areas</div>
+                        <div class="hero-metric-value">Web • Bots • Game Scripts</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-label">Vibe</div>
+                        <div class="hero-metric-value">Build. Break. Fix. Repeat.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-side">
+                <div class="hero-tag-card">
+                    <div class="hero-tag-title">What I work with</div>
+                    <div class="tag-list">
+                        <span class="tag tag-accent">C / C++</span>
+                        <span class="tag tag-accent">Python</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Discord Bots</span>
+                        <span class="tag">Game Scripting (PAWN)</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">Debugging</span>
+                    </div>
+                </div>
+
+                <div class="hero-tag-card">
+                    <div class="hero-tag-title">Currently</div>
+                    <p style="color: var(--text-muted); font-size: 11px; margin-bottom: 8px;">
+                        Learning by building things: from railway systems and deadlock demos to music bots and RP game systems.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Improving C & DSA</span>
+                        <span class="tag">Web Projects</span>
+                        <span class="tag">System Design Basics</span>
+                        <span class="tag">Experimenting with AI tools</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2 class="section-title">
+                <span class="bar"></span> Skills & Stack
+            </h2>
+            <p class="section-subtitle">
+                A quick snapshot of what I’ve been using across projects.
+            </p>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <div class="card-title">Languages</div>
+                    <div class="chip-row">
+                        <span class="chip">C</span>
+                        <span class="chip">C++</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">JavaScript</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Web & Frontend</div>
+                    <div class="chip-row">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">Basic JS</span>
+                        <span class="chip">Responsive Layouts</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Tools & Platforms</div>
+                    <div class="chip-row">
+                        <span class="chip">Git</span>
+                        <span class="chip">GitHub</span>
+                        <span class="chip">VS Code</span>
+                        <span class="chip">Pygame</span>
+                        <span class="chip">Discord.js / Bots</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Other Interests</div>
+                    <div class="chip-row">
+                        <span class="chip">Game Scripting (SA-MP)</span>
+                        <span class="chip">Debugging</span>
+                        <span class="chip">System Design Basics</span>
+                        <span class="chip">AI Experiments</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2 class="section-title">
+                <span class="bar"></span> Projects
+            </h2>
+            <p class="section-subtitle">
+                A mix of personal, academic, and fun projects that helped me learn by doing.
+            </p>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Terminal YouTube Music Player</h3>
+                            <div class="project-tag">C++ • Python • CLI Tool</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        A terminal-based YouTube music player using C++ and Python (
+                        <code>yt_dlp</code>) supporting search, playback, and queues.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">C++</span>
+                            <span class="project-pill">Python</span>
+                            <span class="project-pill">yt_dlp</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">TrainTicketGo – Railway Reservation</h3>
+                            <div class="project-tag">C • DSA • System</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        Railway reservation system implementing DSA concepts like linked lists and queues. Supports seat availability, booking/cancellation, and PNR search.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">C</span>
+                            <span class="project-pill">DSA</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/Rockstar-Dev-Tamil/TrainTIcketGo" target="_blank">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 3 (Deadlock) -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Deadlock Detection & Prevention</h3>
+                            <div class="project-tag">OS • Concept Demo</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        A simple interactive tool visualising resource allocation, requests, and safe-state detection to explain OS deadlock concepts.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">HTML</span>
+                            <span class="project-pill">JS</span>
+                            <span class="project-pill">OS Concepts</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn-action btn-live" href="https://rockstar-dev-tamil.github.io/Deadlock-Detection-Prevention-System/" target="_blank">
+                                Live Demo
+                            </a>
+                            <a class="btn-action btn-code" href="https://github.com/Rockstar-Dev-Tamil/Deadlock-Detection-Prevention-System" target="_blank">
+                                GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">TuneTick™ Discord Music Bot</h3>
+                            <div class="project-tag">Discord • Canvas UI</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        Custom music bot with a `/nowplaying` card rendered using
+                        <code>@napi-rs/canvas</code>, purple-themed visuals, and a category-based help system.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">Node.js</span>
+                            <span class="project-pill">Discord Bots</span>
+                            <span class="project-pill">Canvas</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Simple Pygame Tic-Tac-Toe with AI</h3>
+                            <div class="project-tag">Python • Game</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        Tic-tac-toe built with Pygame and a simple AI to make move decisions. Helped strengthen game loops & basic AI logic.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">Python</span>
+                            <span class="project-pill">Pygame</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/Rockstar-Dev-Tamil/Simple-PygameTicTacToe-With-AI" target="_blank">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 7 (LEGENDARY-WEB) -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">LEGENDARY-WEB</h3>
+                            <div class="project-tag">Web • Community Site</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        A web page created for Legendary Roleplay community, focusing on theme, layout and a clean presentation style.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">HTML</span>
+                            <span class="project-pill">CSS</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn-action btn-live" href="https://rockstar-dev-tamil.github.io/LEGENDARY-WEB/" target="_blank">
+                                Live Demo
+                            </a>
+                            <a class="btn-action btn-code" href="https://github.com/Rockstar-Dev-Tamil/LEGENDARY-WEB" target="_blank">
+                                GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 8 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">SIMPLE-AURUS-WEB</h3>
+                            <div class="project-tag">Web • Static</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        A simple static website focusing on clean structure and basic layout styling.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">HTML</span>
+                            <span class="project-pill">CSS</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/Rockstar-Dev-Tamil/SIMPLE-AURUS-WEB" target="_blank">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 9 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Project-Library</h3>
+                            <div class="project-tag">Web • Showcase</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        A web hub that showcases multiple mini-projects in one interface, acting like a simple project gallery.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-stack">
+                            <span class="project-pill">HTML</span>
+                            <span class="project-pill">CSS</span>
+                            <span class="project-pill">JS</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/Rockstar-Dev-Tamil/Project-Library" target="_blank">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience / Achievements -->
+        <section id="experience">
+            <h2 class="section-title">
+                <span class="bar"></span> Experience & Achievements
+            </h2>
+            <p class="section-subtitle">
+                Some things I’ve been part of outside just writing code.
+            </p>
+
+            <div class="timeline">
+                <div class="card">
+                    <div class="timeline-item-title">Legendary Roleplay – Server Developer</div>
+                    <div class="timeline-badge">Game Scripting • SA-MP</div>
+                    <div class="timeline-meta">Ongoing • Remote</div>
+                    <div class="timeline-body">
+                        Worked on gameplay logic, heist systems, balancing, and bug fixing. Focused on making RP more immersive through custom scripted systems.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="timeline-item-title">The Big Bug Theory – 2nd Prize</div>
+                    <div class="timeline-badge">Tech Event • SRMIST</div>
+                    <div class="timeline-meta">SRM Institute of Science and Technology</div>
+                    <div class="timeline-body">
+                        Secured 2nd place in a competitive debugging / problem-solving event, reinforcing my interest in logic, code quality, and optimization.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2 class="section-title">
+                <span class="bar"></span> Contact
+            </h2>
+            <p class="section-subtitle">
+                Open for internships, collabs, and interesting dev ideas.
+            </p>
+
+            <div class="contact-grid">
+                <div class="card">
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">
+                                <a href="mailto:ytrockstar51@gmail.com">ytrockstar51@gmail.com</a>
+                            </span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">
+                                <a href="https://github.com/Rockstar-Dev-Tamil" target="_blank">
+                                    github.com/Rockstar-Dev-Tamil
+                                </a>
+                            </span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">
+                                <a href="https://www.linkedin.com/in/jayabalaji-t-1a647526a/" target="_blank">
+                                    /in/jayabalaji-t-1a647526a
+                                </a>
+                            </span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Discord</span>
+                            <span class="contact-value">
+                                <a href="https://discord.com/users/844809549222379561" target="_blank">
+                                    rockstar_yt_tamil
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">Instagram</span>
+                            <span class="contact-value">
+                                <a href="https://instagram.com/ig.rockstar.yt" target="_blank">
+                                    @ig.rockstar.yt
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Chennai, India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">What I’m looking for</div>
+                    <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Internships, project collabs, or anything that lets me build more.</strong><br /> I’m especially interested in:
+                    </p>
+                    <ul style="font-size: 11px; color: var(--text-muted); padding-left: 14px;">
+                        <li>• C / C++ / Python based projects</li>
+                        <li>• Web dev & simple product builds</li>
+                        <li>• Game scripting, bots, automation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                Built with 💜, dark mode, and a lot of console logs.
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
