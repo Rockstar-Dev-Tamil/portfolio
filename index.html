@@ -7,6 +7,18 @@
     <link rel="icon" type="image/png" href="logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <div id="viewCount" style="text-align:center; margin-top:10px; color:#a78bfa; font-size:12px;">
+        Loading views...
+    </div>
+
+    <script>
+        fetch('https://api.countapi.xyz/hit/jayabalaji-portfolio/views')
+            .then(res => res.json())
+            .then(res => {
+                document.getElementById("viewCount").innerText =
+                    `👁️ Portfolio Views: ${res.value}`;
+            });
+    </script>
     <style>
          :root {
             --bg: #050510;
@@ -1218,3 +1230,4 @@
 
 
 </html>
+
